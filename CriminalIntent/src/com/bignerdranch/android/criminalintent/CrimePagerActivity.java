@@ -43,12 +43,13 @@ public class CrimePagerActivity extends FragmentActivity {
 		});
 		
 		UUID crimeId = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
-		for (int i = 0; i < mCrimes.size(); i++) {
-			if (mCrimes.get(i).getmId().equals(crimeId)) {
-			    mViewPager.setCurrentItem(i);
-			    break;
-			}
-		}
+		mViewPager.setCurrentItem(mCrimes.indexOf(CrimeLab.get(this).getCrime(crimeId)));
+//		for (int i = 0; i < mCrimes.size(); i++) {
+//			if (mCrimes.get(i).getmId().equals(crimeId)) {
+//			    mViewPager.setCurrentItem(i);
+//			    break;
+//			}
+//		}
 		//используется для обнаружения изменений в странице
 		mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			
